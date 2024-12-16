@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full-Screen Image Viewer</title>
+    <style>
+        /* Style for the small preview image */
+        .preview {
+            width: 300px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        /* Add a zoom effect on hover */
+        .preview:hover {
+            transform: scale(1.1);
+        }
+
+        /* Full-screen modal container */
+        #imageModal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        /* Full-screen image */
+        #imageModal img {
+            max-width: 90%;
+            max-height: 90%;
+            box-shadow: 0 0 10px white;
+            border-radius: 8px;
+        }
+
+        /* Close button */
+        #imageModal .close {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            color: white;
+            font-size: 2em;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Image Viewer</h1>
+    <img class="preview" src="snic1.jpg" alt="Preview Image" onclick="openModal()">
+
+    <!-- Full-screen modal -->
+    <div id="imageModal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img src="snic1.jpg" alt="Full-Screen Image">
+    </div>
+
+    <script>
+        // Function to open the modal
+        function openModal() {
+            const modal = document.getElementById('imageModal');
+            modal.style.display = 'flex';
+        }
+
+        // Function to close the modal
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
